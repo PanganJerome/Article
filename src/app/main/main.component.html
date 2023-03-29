@@ -1,0 +1,21 @@
+<mat-toolbar color="primary">
+  <mat-icon ></mat-icon>
+  <mat-icon style="cursor: pointer;" (click)="home()">home</mat-icon>
+    <span class="spacer"></span>
+    <button mat-icon-button class="example-icon favorite-icon" aria-label="Example icon-button with heart icon">
+      <span style="margin-left: -50px;">{{getData.name}} {{getData.lastname}}</span>
+    </button>
+    <button mat-icon-button class="example-icon" aria-label="Example icon-button with share icon"  [matMenuTriggerFor]="menu">
+      <!-- <img [lazyLoad]="'http://127.0.0.1:8000/'" [defaultImage]="'assets/profile.png'" [errorImage]="'assets/profile.png'" class="img" alt="" > -->
+      <mat-icon style="cursor: pointer;" >more_vert</mat-icon>
+    </button>
+    <mat-menu #menu="matMenu">
+      <button mat-menu-item (click)="toProfile()">Profile</button>
+      <button mat-menu-item (click)="logout()">Log Out</button>
+    </mat-menu>
+  </mat-toolbar>
+
+<div class="content-container" > 
+     
+    <router-outlet></router-outlet>
+  </div>

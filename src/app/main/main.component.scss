@@ -1,0 +1,15 @@
+.content-container {
+    padding: 50px;
+    min-height: 91hv;
+  }
+  .spacer {
+    flex: 1 1 auto;
+  }
+.img{
+    border: 1px solid #000;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    object-fit: cover;
+    background-color: #e4dede;
+}

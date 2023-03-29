@@ -1,0 +1,28 @@
+<header>
+    <!-- <mat-toolbar> </mat-toolbar> -->
+    <span class="spacer"></span>
+    <h2 mat-dialog-title class="button-row "> Article </h2>
+   <div class="button-row "> </div>
+</header> 
+ 
+<div mat-dialog-content>
+    <form  [formGroup]="frmGroup" ngNativeValidate>
+
+    <mat-form-field class="suffix" appearance="outline">
+        <mat-label> Title</mat-label>
+        <input type="text" matInput  formControlName="title_fld" id="title_fld">
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+        <mat-label>Description</mat-label>
+        <textarea type="text" matInput  formControlName="detail_fld" id="detail_fld" > </textarea>
+    </mat-form-field>
+
+</form>
+
+    <div mat-dialog-action [align]="'end'"> 
+        <button mat-raised-button color="warn" mat-dialog-close  > close </button>
+        <button mat-raised-button color="primary"  type="submit" [disabled]="frmGroup.invalid" style="margin-left: 8px;" (click)="OnAddAddArticle()">  {{updateBtn}} </button>
+    </div>
+
+</div>

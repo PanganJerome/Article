@@ -1,0 +1,74 @@
+<div class="content" role="main">
+  <h1> Personal Information</h1>
+        <!-- <img [lazyLoad]="selectedFile" [defaultImage]="'assets/profile.png'" [errorImage]="'assets/profile.png'" class="img" alt="" (click)="fileInput.click()" *ngIf="selectedFile  && !fileChange" >
+        <mat-icon  matSuffix (click)="fileInput.click()" style="margin-top: -23px; color: antiquewhite; font-size: 20px; margin-left: 5px;">photo_camera</mat-icon> -->
+
+        <!-- <img [src]="selectedFile"  *ngIf="selectedFile  && fileChange" class="img"  (click)="fileInput.click()">
+                <mat-icon  matSuffix (click)="fileInput.click()" style="margin-top: -23px; color: antiquewhite; font-size: 20px; margin-left: 5px;">photo_camera</mat-icon>
+
+        <img [src]="selectedFile" *ngIf="selectedFile && !fileChange" class="img"  (click)="fileInput.click()">
+        <mat-icon  matSuffix (click)="fileInput.click()" style="margin-top: -23px; color: antiquewhite; font-size: 20px; margin-left: 5px;">photo_camera</mat-icon> -->
+
+    <div class="card-container">
+  
+      <div class="card">
+           <form  [formGroup]="frmGroup" ngNativeValidate class="formGroup"> 
+
+    
+                <!-- <input type="text" readonly matInput   hidden />
+                    <input type="file" accept="image/*" hidden class="file-input" multiple (change)="onFile($event)" #fileInput /> -->
+
+            <mat-form-field appearance="outline" class="form1" >
+                <mat-label> First name</mat-label>
+                <input type="text"  matInput formControlName="name" id="name"   required >
+                <mat-hint class="err-message" *ngIf="frmGroup.controls['name'].invalid &&frmGroup.controls['name'].touched"> Name must only contain letters   </mat-hint>
+            </mat-form-field>
+          
+   
+            <mat-form-field appearance="outline" class="form2" >
+                <mat-label> Last name</mat-label>
+                <input type="text"  matInput formControlName="lastname"  id="lastname"   required >
+                <mat-hint class="err-message" *ngIf="frmGroup.controls['lastname'].invalid &&frmGroup.controls['lastname'].touched"> Name must only contain letters   </mat-hint>
+            </mat-form-field>         
+        
+            <mat-form-field appearance="outline" class="example-full-width" >
+                <mat-label> Email</mat-label>
+                <mat-icon matPrefix>email</mat-icon>
+                <input type="text"  matInput formControlName="email"  id="email"   required >
+                <mat-hint class="err-message" *ngIf="frmGroup.controls['email'].invalid &&frmGroup.controls['email'].touched">Invalid email  </mat-hint>
+            </mat-form-field>
+          
+            
+            <mat-form-field appearance="outline" class="example-full-width" >
+                <mat-label> Password</mat-label>
+                <mat-icon  matPrefix>lock</mat-icon>
+                <input [type]="hide? 'password' : 'text'" matInput formControlName="password"  id="password">
+                <span mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide" >
+                    <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                </span>
+                <mat-hint class="err-message" *ngIf="frmGroup.controls['password'].invalid &&frmGroup.controls['password'].touched">Password must contain at least one number, one uppercase and a lowercase letter 
+                    and at least 8 characters  </mat-hint>
+            </mat-form-field>
+
+            <mat-form-field appearance="outline" class="example-full-width" >
+                <mat-label>Confirm password</mat-label>
+                <mat-icon  matPrefix>lock</mat-icon>
+                <input [type]="hide? 'password' : 'text'" matInput formControlName="password_confirmation"  id="password_confirmation"   >
+                <span mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password_confirmation'" [attr.aria-pressed]="hide" >
+                    <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                </span>
+        
+                <mat-hint class="err-message"  *ngIf="frmGroup.controls['password_confirmation'].errors && frmGroup.controls['password_confirmation'].errors['confirmedValidator']">password doesn't match  </mat-hint> 
+            </mat-form-field>
+            <div class="spinner" *ngIf="isloading"></div>
+            <div class="logout" *ngIf="isloading">logging out...</div>
+            <button  mat-raised-button type="submit"  [disabled]="frmGroup.invalid || isloading" [style.visibility]="isloading ? 'hidden' : 'visible'" class="btn" color="primary" (click)="update()">
+              Update Profile
+          </button>
+        </form>
+  
+      </div>
+  
+    </div>
+  
+  </div>
